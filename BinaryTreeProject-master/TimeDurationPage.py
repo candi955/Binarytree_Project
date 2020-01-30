@@ -72,18 +72,20 @@ class Regression():
         columnLabels = data[0]
         print("Showing the header labels only:\n\n", columnLabels, "\n\n")
 
+
+        # saving value creation for future reference
         # Creating values for the graph
         # Creating the values variable as increments 0.125 apart, between 0 and 1.625, so that the top level value
         # shows as 1.5
         # using np.arange(bottom level #, just above top level #, increment)
         # reference: https://appdividend.com/2019/01/31/numpy-arange-tutorial-with-example-python-numpy-functions/
-
         ###values = np.arange(0, 1.625, 0.125)
         ###print('\n\n', values)
         ###valueIncrement = 0.125
 
 
         fig, ax = plt.subplots()
+
         ax.plot(rowLabels_ForData, arrayVectorData, label="Array")
         ax.plot(rowLabels_ForData, DblData, label="DblLinked")
         ax.plot(rowLabels_ForData, BinData, label="BST")
@@ -94,12 +96,6 @@ class Regression():
         # The top title (suptitle) and title descriptor(title)
         plt.suptitle("Duration in Seconds of Insertion and Deletion Functionality in Python")
         plt.title("\nArrays, Doubly Linked Lists, and Binary Search Trees")
-
-        # Attempting to change matplotlib plot font sizes
-        font = {'family': 'normal',
-                'weight': 'bold',
-                'size': '0'}
-        matplotlib.rc('font', **font)
 
         plt.show()
 
