@@ -12,7 +12,9 @@
 import numpy as np
 import xlrd
 import pandas as pd
+import matplotlib
 import matplotlib.pyplot as plt
+
 
 # Creating a variable for data being pulled from the TimeDurationComparison.xlsx file and placed into array format
 book = xlrd.open_workbook('TimeDurationComparison.xlsx')
@@ -86,6 +88,18 @@ class Regression():
         ax.plot(rowLabels_ForData, DblData, label="DblLinked")
         ax.plot(rowLabels_ForData, BinData, label="BST")
         ax.legend()
+        # x and y axis labels
+        plt.xlabel("Insertions and Deletions by Random Number\n")
+        plt.ylabel("Amount of Time Duration in Seconds\n")
+        # The top title (suptitle) and title descriptor(title)
+        plt.suptitle("Duration in Seconds of Insertion and Deletion Functionality in Python")
+        plt.title("\nArrays, Doubly Linked Lists, and Binary Search Trees")
+
+        # Attempting to change matplotlib plot font sizes
+        font = {'family': 'normal',
+                'weight': 'bold',
+                'size': '0'}
+        matplotlib.rc('font', **font)
 
         plt.show()
 
