@@ -28,19 +28,19 @@ timeduration_df = pd.read_excel(book, index_col=None,
                                 na_values=['NA'])
 
 class Regression():
-    def _duration_(self):
+    def _showTable_(self):
 
         # Showing the data that was pulled from TimeDurationComparison.xlsx in array form
-        print("Data pulled from the excel file:\n\n", data, "\n")
+        print("\n\nData pulled from the excel file:\n\n", data, "\n\n")
 
         # Obtaining the shape of the data
-        print("Data shape: ", data.shape, "\n")
+        print("Data shape: ", data.shape, "\n\n")
         # Data shape:  (9, 4)
 
         # Showing the data that was pulled from TimeDurationComparison.xlsx in excel form
-        print("Data put into excel format:\n\n", timeduration_df, "\n")
+        print("Data put into excel format:\n\n", timeduration_df, "\n\n")
 
-    def _tableAndPlot_(self):
+    def _showPlot_(self):
         pass
         # Attempting to create a table and plot chart of the dataframe TimeDurationComparison.xlsx
         # using iloc (row and column slicing) for python, references:
@@ -49,16 +49,23 @@ class Regression():
         # Rows 0-7 (0:8), and columns 1-3 (to take out column 0, shows as 1:4 in iloc) to show the main data in the
         # dataframe
         data = timeduration_df.iloc[0:8, 1:4]
-        print("\n\nThe data of the dataframe:\n", data, "\n")
+        print("------- Splitting the dataframe into sections -------\n\nThe data of the dataframe:\n\n", data, "\n")
 
         # This is the iloc to show the entire first column of the dataframe, for the label column
         column = timeduration_df.iloc[:, 0]
-        print("The column of the dataframe:\n", column, "\n")
+        print("The column of the dataframe:\n\n", column, "\n")
 
         # This is to pull the top label for the data only, with the variable data.head calling the pandas function
         # head, with the index 0.  You can change the index to show more rows.
         headingLabels = data.head(0)
-        print(headingLabels)
+        print("Showing the header labels only:\n\n", headingLabels, "\n\n")
+
+        # Creating values for the graph
+        # Creating the values variable as increments 0.125 apart, between 0 and 1.625, so that the top level value
+        # shows as 1.5
+        # using np.arange(bottom level #, just above top level #, increment)
+        values = np.arange(0, 1.625, 0.125)
+        print('\n\n', values)
 
 
 Regression()
@@ -66,5 +73,5 @@ Regression()
 show = Regression()
 
 # Calling methods
-show._duration_()
-show._tableAndPlot_()
+show._showTable_()
+show._showPlot_()
