@@ -13,9 +13,9 @@ import numpy as np
 import xlrd
 import pandas as pd
 import matplotlib.pyplot as plt
-#from numpy.polynomial.polynomial import polyfit
-#import statsmodels.api as sm
-#import tensorflow as tf
+
+
+
 
 # Creating a variable for data being pulled from the TimeDurationComparison.xlsx file and placed into array format
 book = xlrd.open_workbook('TimeDurationComparison.xlsx')
@@ -41,7 +41,7 @@ class Regression():
         print("Data put into excel format:\n\n", timeduration_df, "\n\n")
 
     def _showPlot_(self):
-        pass
+
         # Attempting to create a table and plot chart of the dataframe TimeDurationComparison.xlsx
         # using iloc (row and column slicing) for python, references:
         # https://www.shanelynn.ie/select-pandas-dataframe-rows-and-columns-using-iloc-loc-and-ix/
@@ -51,21 +51,29 @@ class Regression():
         data = timeduration_df.iloc[0:8, 1:4]
         print("------- Splitting the dataframe into sections -------\n\nThe data of the dataframe:\n\n", data, "\n")
 
-        # This is the iloc to show the entire first column of the dataframe, for the label column
-        column = timeduration_df.iloc[:, 0]
-        print("The column of the dataframe:\n\n", column, "\n")
+        # This is the iloc to show the entire first column, the row labels, of the dataframe, for the label column
+        rowLabels_ForData = timeduration_df.iloc[:, 0]
+        print("The column of the dataframe:\n\n", rowLabels_ForData, "\n")
 
         # This is to pull the top label for the data only, with the variable data.head calling the pandas function
         # head, with the index 0.  You can change the index to show more rows.
-        headingLabels = data.head(0)
-        print("Showing the header labels only:\n\n", headingLabels, "\n\n")
+        columnLabels = data.head(0)
+        print("Showing the header labels only:\n\n", columnLabels, "\n\n")
 
         # Creating values for the graph
         # Creating the values variable as increments 0.125 apart, between 0 and 1.625, so that the top level value
         # shows as 1.5
         # using np.arange(bottom level #, just above top level #, increment)
+        # reference: https://appdividend.com/2019/01/31/numpy-arange-tutorial-with-example-python-numpy-functions/
         values = np.arange(0, 1.625, 0.125)
         print('\n\n', values)
+        valueIncrement = 0.125
+
+        fig, ax = plt.subplots()
+        ax.plot(columnLabels, data, labels=('This is the Label'))
+
+        ax.legend()
+        plt.show()
 
 
 Regression()
