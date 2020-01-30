@@ -1,10 +1,15 @@
 # Time Duration Page
 
+# Pandas table and Matplotlib line plot
+
 # Comparing time durations of the BST functions insertion and deletion using the binarytree python library in chart
 # form.  These numbers will be compared to similar numbers with previous projects concerning arrays and linked lists.
 # The time durations of a hundred, thousand, ten-thousand, and hundred-thousand random numbers will be compared.
 
-# references:
+# Main reference for the Matplotlip plot on this page:
+# https://matplotlib.org/gallery/lines_bars_and_markers/categorical_variables.html#sphx-glr-gallery-lines-bars-and-markers-categorical-variables-py
+
+# Other references:
 # https://matplotlib.org/api/table_api.html?highlight=table#module-matplotlib.table
 # https://matplotlib.org/gallery/index.html
 # https://matplotlib.org/gallery/misc/table_demo.html#sphx-glr-gallery-misc-table-demo-py
@@ -12,7 +17,6 @@
 import numpy as np
 import xlrd
 import pandas as pd
-import matplotlib
 import matplotlib.pyplot as plt
 
 
@@ -39,6 +43,8 @@ class Regression():
         # Showing the data that was pulled from TimeDurationComparison.xlsx in excel form
         print("Data put into excel format:\n\n", timeduration_df, "\n\n")
 
+    # Reference for plot:
+    # https: // matplotlib.org / gallery / lines_bars_and_markers / categorical_variables.html  # sphx-glr-gallery-lines-bars-and-markers-categorical-variables-py
     def _showPlot_(self):
 
         # Attempting to create a table and plot chart of the dataframe TimeDurationComparison.xlsx
@@ -98,6 +104,9 @@ class Regression():
         plt.title("\nArrays, Doubly Linked Lists, and Binary Search Trees")
 
         plt.show()
+
+        # Reference for plot:
+        # https: // matplotlib.org / gallery / lines_bars_and_markers / categorical_variables.html  # sphx-glr-gallery-lines-bars-and-markers-categorical-variables-py
 
 Regression()
 
