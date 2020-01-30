@@ -48,8 +48,21 @@ class Regression():
         # https://datacarpentry.org/python-ecology-lesson/03-index-slice-subset/
         # Rows 0-7 (0:8), and columns 1-3 (to take out column 0, shows as 1:4 in iloc) to show the main data in the
         # dataframe
-        data = timeduration_df.iloc[0:8, 1:4]
+        ###data = timeduration_df.iloc[0:8, 1:4]
         print("------- Splitting the dataframe into sections -------\n\nThe data of the dataframe:\n\n", data, "\n")
+
+        # 1st data column, the Array column
+        arrayVectorData = timeduration_df.iloc[:, 1]
+        print("Array column: \n", arrayVectorData, "\n")
+
+        # 2nd data column, the DoublyLinkedList column
+        DblData = timeduration_df.iloc[:, 2]
+        print("Doubly Linked List column: \n", DblData, "\n")
+
+        # 3rd data column, the Binary Tree column
+        BinData = timeduration_df.iloc[:, 3]
+        print("Binary Tree column: \n", BinData, "\n")
+
 
         # This is the iloc to show the entire first column, the row labels, of the dataframe, for the label column
         rowLabels_ForData = timeduration_df.iloc[:, 0]
@@ -65,9 +78,10 @@ class Regression():
         # shows as 1.5
         # using np.arange(bottom level #, just above top level #, increment)
         # reference: https://appdividend.com/2019/01/31/numpy-arange-tutorial-with-example-python-numpy-functions/
-        values = np.arange(0, 1.625, 0.125)
-        print('\n\n', values)
-        valueIncrement = 0.125
+
+        ###values = np.arange(0, 1.625, 0.125)
+        ###print('\n\n', values)
+        ###valueIncrement = 0.125
 
         fig, ax = plt.subplots()
         ax.plot(columnLabels, data, labels=('This is the Label'))
