@@ -20,23 +20,30 @@ import pandas as pd
 
 class Regression():
     def _duration_(self):
-        # Pulling data from the TimeDurationComparison.xlsx file
-        # Pulling excel file data for WB1 up and changing into a numpy array
-        print("\n" + "\n")
-        # print('Excel data set in array format:' + '\n' + '\n')
 
-        book = xlrd.open_workbook('PastWinningNumbers_ExcelFormat.xlsx')
+        # Pulling data from the TimeDurationComparison.xlsx file and placing in array
+        book = xlrd.open_workbook('TimeDurationComparison.xlsx')
         sheets = book.sheets()
         for sheet in sheets:
 
             data = np.array([[sheet.cell_value(r, c) for c in range(sheet.ncols)] for r in range(sheet.nrows)])
-            # print(data)
-            data.shape = (49, 7)
-            # print(data.shape)
-        # Creating a linear regression scatter plot chart for WB1
+            print("Data pulled from the excel file:\n\n", data, "\n")
 
-        lottoSet_df = pd.read_excel(book, index_col=None,
+            # Obtaining the shape of the data
+            print("Data shape: ", data.shape, "\n")
+            # Data shape:  (9, 4)
+
+        # Putting the data in excel file format
+
+        timeduration_df = pd.read_excel(book, index_col=None,
                                     na_values=['NA'])
 
-        # print('\n' + '\n' + 'LottoSet_df:')
-        # print(lottoSet_df)
+        print("Data put into excel format:\n\n", timeduration_df, "\n")
+
+
+Regression()
+
+show = Regression()
+
+# Calling methods
+show._duration_()
