@@ -14,9 +14,6 @@ import xlrd
 import pandas as pd
 import matplotlib.pyplot as plt
 
-
-
-
 # Creating a variable for data being pulled from the TimeDurationComparison.xlsx file and placed into array format
 book = xlrd.open_workbook('TimeDurationComparison.xlsx')
 sheets = book.sheets()
@@ -68,9 +65,9 @@ class Regression():
         rowLabels_ForData = timeduration_df.iloc[:, 0]
         print("The column of the dataframe:\n\n", rowLabels_ForData, "\n")
 
-        # This is to pull the top label for the data only, with the variable data.head calling the pandas function
-        # head, with the index 0.  You can change the index to show more rows.
-        columnLabels = data.head(0)
+        # This is to pull the top label for the data only, with the variable set to call the index 0.
+        # You can change the index to show more rows.
+        columnLabels = data[0]
         print("Showing the header labels only:\n\n", columnLabels, "\n\n")
 
         # Creating values for the graph
@@ -83,12 +80,14 @@ class Regression():
         ###print('\n\n', values)
         ###valueIncrement = 0.125
 
+
         fig, ax = plt.subplots()
-        ax.plot(columnLabels, data, labels=('This is the Label'))
-
+        ax.plot(rowLabels_ForData, arrayVectorData, label="Array")
+        ax.plot(rowLabels_ForData, DblData, label="DblLinked")
+        ax.plot(rowLabels_ForData, BinData, label="BST")
         ax.legend()
-        plt.show()
 
+        plt.show()
 
 Regression()
 
