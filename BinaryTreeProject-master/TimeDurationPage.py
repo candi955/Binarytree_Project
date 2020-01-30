@@ -43,7 +43,22 @@ class Regression():
     def _tableAndPlot_(self):
         pass
         # Attempting to create a table and plot chart of the dataframe TimeDurationComparison.xlsx
-        #data =
+        # using iloc (row and column slicing) for python, references:
+        # https://www.shanelynn.ie/select-pandas-dataframe-rows-and-columns-using-iloc-loc-and-ix/
+        # https://datacarpentry.org/python-ecology-lesson/03-index-slice-subset/
+        # Rows 0-7 (0:8), and columns 1-3 (to take out column 0, shows as 1:4 in iloc) to show the main data in the
+        # dataframe
+        data = timeduration_df.iloc[0:8, 1:4]
+        print("\n\nThe data of the dataframe:\n", data, "\n")
+
+        # This is the iloc to show the entire first column of the dataframe, for the label column
+        column = timeduration_df.iloc[:, 0]
+        print("The column of the dataframe:\n", column, "\n")
+
+        # This is to pull the top label for the data only, with the variable data.head calling the pandas function
+        # head, with the index 0.  You can change the index to show more rows.
+        headingLabels = data.head(0)
+        print(headingLabels)
 
 
 Regression()
@@ -52,3 +67,4 @@ show = Regression()
 
 # Calling methods
 show._duration_()
+show._tableAndPlot_()
